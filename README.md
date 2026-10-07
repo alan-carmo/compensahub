@@ -90,7 +90,7 @@ graph TD
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/usuario/compensahub.git
+git clone https://github.com/alan-carmo/compensahub.git
 cd compensahub
 
 # 2. Suba a aplicação com Docker Compose
