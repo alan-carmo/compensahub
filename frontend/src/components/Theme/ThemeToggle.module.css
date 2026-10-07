@@ -1,0 +1,23 @@
+/* Botão circular de alternância de tema no estilo Glassmorphism */
+.themeButton {
+  position: relative; /* Posicionamento relativo */
+  display: flex; /* Flexbox interno */
+  align-items: center; /* Centralização vertical */
+  justify-content: center; /* Centralização horizontal */
+  width: 42px; /* Largura do botão igual ao do sino de notificações */
+  height: 42px; /* Altura do botão */
+  background: rgba(30, 41, 59, 0.6); /* Fundo translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Borda sutil */
+  border-radius: 12px; /* Cantos arredondados */
+  color: #94a3b8; /* Cor cinza padrão do ícone */
+  cursor: pointer; /* Ponteiro de mão */
+  transition: all 0.25s ease-in-out; /* Transição suave de efeito e rotação do ícone */
+}
+
+/* Hover no botão de alternar tema */
+.themeButton:hover {
+  background: rgba(139, 92, 246, 0.2); /* Fundo lilás translúcido no hover */
+  border-color: rgba(139, 92, 246, 0.4); /* Borda roxa vibrante */
+  color: #f59e0b; /* Ícone em tom dourado/amarelo para destacar o sol */
+  transform: rotate(15deg); /* Leve rotação de destaque ao passar o mouse */
+}

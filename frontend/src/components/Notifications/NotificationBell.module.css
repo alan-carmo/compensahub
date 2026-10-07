@@ -1,0 +1,312 @@
+/* Container relativo do ícone de sino e do popover de notificações */
+.notificationBellContainer {
+  position: relative; /* Posicionamento relativo para ancorar a janela popover */
+  display: inline-block; /* Exibição em bloco alinhado */
+  z-index: 1001; /* Garante prioridade de empilhamento no cabeçalho */
+}
+
+/* Botão circular do sino de notificações */
+.bellButton {
+  position: relative; /* Posicionamento relativo para fixar o badge numérico */
+  display: flex; /* Flexbox interno */
+  align-items: center; /* Centralização vertical */
+  justify-content: center; /* Centralização horizontal */
+  width: 42px; /* Largura do botão */
+  height: 42px; /* Altura do botão */
+  background: rgba(30, 41, 59, 0.6); /* Fundo em vidro translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Borda sutil */
+  border-radius: 12px; /* Cantos arredondados */
+  color: #94a3b8; /* Cor cinza do ícone */
+  cursor: pointer; /* Ponteiro de clique */
+  transition: all 0.2s ease-in-out; /* Transição suave de foco/hover */
+}
+
+/* Hover no botão do sino */
+.bellButton:hover {
+  background: rgba(139, 92, 246, 0.2); /* Destaque com fundo roxo translúcido */
+  border-color: rgba(139, 92, 246, 0.4); /* Borda roxa vibrante */
+  color: #c4b5fd; /* Ícone em tom lilás claro */
+}
+
+/* Badge numérico de contagem de notificações não lidas no canto superior direito */
+.badge {
+  position: absolute; /* Posicionamento absoluto no topo do botão */
+  top: -4px; /* Deslocamento para cima */
+  right: -4px; /* Deslocamento para a direita */
+  min-width: 20px; /* Largura mínima */
+  height: 20px; /* Altura fixa */
+  padding: 0 6px; /* Preenchimento lateral */
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); /* Gradiente vermelho de alerta */
+  color: #ffffff; /* Texto branco */
+  font-size: 11px; /* Tamanho pequeno */
+  font-weight: 700; /* Texto em negrito */
+  border-radius: 10px; /* Borda ovalada */
+  display: flex; /* Flexbox para centralizar */
+  align-items: center; /* Centralização vertical */
+  justify-content: center; /* Centralização horizontal */
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6); /* Brilho neon de alerta */
+  animation: pulseBadge 2s infinite; /* Animação de pulso contínuo */
+}
+
+/* Animação de pulso no badge vermelho */
+@keyframes pulseBadge {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* Popover suspenso de notificações em estilo Glassmorphism com opacidade total */
+.popover {
+  position: absolute; /* Posição absoluta ancorada ao sino */
+  top: 52px; /* Distância abaixo do botão */
+  right: 0; /* Alinhado à direita */
+  width: 380px; /* Largura da janela de notificações */
+  max-height: 480px; /* Altura máxima com rolagem */
+  background: rgba(15, 23, 42, 0.98); /* Fundo escuro fosco de alta opacidade para evitar transparência fantasma */
+  backdrop-filter: blur(24px); /* Efeito Glassmorphism de vidro fosco avançado */
+  -webkit-backdrop-filter: blur(24px); /* Suporte Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borda translúcida de destaque */
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 30px rgba(139, 92, 246, 0.3); /* Sombra intensa de sobreposição */
+  z-index: 9999; /* Índice de empilhamento máximo sobre todos os elementos da página */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Organização em coluna */
+  overflow: hidden; /* Oculta estouros nas bordas */
+  animation: fadeIn 0.2s ease-out; /* Transição de abertura */
+}
+
+/* Animação suave de surgimento do popover */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Cabeçalho do popover de notificações */
+.popoverHeader {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  justify-content: space-between; /* Distribuição nas extremidades */
+  padding: 16px 20px; /* Preenchimento interno */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Linha divisória sutil */
+}
+
+/* Título e badge do cabeçalho */
+.headerTitleGroup {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização */
+  gap: 10px; /* Espaço entre título e badge */
+}
+
+/* Título "Notificações" */
+.popoverTitle {
+  color: #f8fafc; /* Texto claro */
+  font-size: 15px; /* Tamanho destacado */
+  font-weight: 600; /* Negrito */
+  margin: 0; /* Sem margens */
+}
+
+/* Badge indicativo de total não lidas no cabeçalho */
+.headerBadge {
+  background: rgba(139, 92, 246, 0.2); /* Fundo lilás suave */
+  color: #c4b5fd; /* Texto lilás */
+  font-size: 11px; /* Tamanho pequeno */
+  font-weight: 700; /* Negrito */
+  padding: 2px 8px; /* Preenchimento */
+  border-radius: 12px; /* Forma arredondada */
+}
+
+/* Botão "Marcar lidas" no cabeçalho */
+.markReadBtn {
+  background: transparent; /* Fundo transparente */
+  border: none; /* Sem bordas */
+  color: #94a3b8; /* Cor cinza */
+  font-size: 12px; /* Tamanho pequeno */
+  cursor: pointer; /* Cursor de clique */
+  transition: color 0.2s; /* Transição */
+}
+
+/* Hover no botão marcar lidas */
+.markReadBtn:hover {
+  color: #8b5cf6; /* Cor roxa ao passar o mouse */
+}
+
+/* Barra de abas de filtragem (Todas, Críticas, Alertas) */
+.tabBar {
+  display: flex; /* Flexbox horizontal */
+  padding: 8px 16px; /* Preenchimento interno */
+  background: rgba(30, 41, 59, 0.4); /* Fundo da barra */
+  gap: 8px; /* Espaçamento entre abas */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Divisória inferior */
+}
+
+/* Botão de aba de filtro */
+.tabItem {
+  flex: 1; /* Ocupa largura igual */
+  padding: 6px 10px; /* Preenchimento */
+  background: transparent; /* Fundo transparente */
+  border: none; /* Sem borda */
+  border-radius: 8px; /* Cantos levemente arredondados */
+  color: #94a3b8; /* Texto cinza */
+  font-size: 12px; /* Tamanho da fonte */
+  font-weight: 500; /* Peso médio */
+  cursor: pointer; /* Ponteiro de mão */
+  transition: all 0.2s; /* Transição */
+  text-align: center; /* Centraliza texto */
+}
+
+/* Aba selecionada/ativa */
+.tabItemActive {
+  background: rgba(139, 92, 246, 0.25); /* Fundo roxo em destaque */
+  color: #ffffff; /* Texto branco */
+  font-weight: 600; /* Negrito */
+}
+
+/* Lista rolável de cards de notificação */
+.notificationList {
+  flex: 1; /* Ocupa a altura restante */
+  overflow-y: auto; /* Barra de rolagem vertical */
+  max-height: 360px; /* Altura máxima */
+  padding: 12px 16px; /* Preenchimento */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 10px; /* Espaço entre cards */
+}
+
+/* Personalização da barra de rolagem fina */
+.notificationList::-webkit-scrollbar {
+  width: 5px;
+}
+.notificationList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Card individual de notificação */
+.card {
+  display: flex; /* Flexbox horizontal */
+  gap: 12px; /* Espaço entre ícone e conteúdo */
+  padding: 12px; /* Preenchimento interno */
+  background: rgba(30, 41, 59, 0.7); /* Fundo escuro fosco */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Borda fina */
+  border-radius: 12px; /* Arredondamento */
+  transition: all 0.2s ease; /* Transição de hover */
+}
+
+/* Card com tipo de erro/crítico */
+.cardCritical {
+  border-left: 3px solid #ef4444; /* Tarja vermelha à esquerda */
+  background: rgba(239, 68, 68, 0.12); /* Fundo sutilmente avermelhado */
+}
+
+/* Card com tipo de alerta/aviso */
+.cardWarning {
+  border-left: 3px solid #f59e0b; /* Tarja amarela/laranja à esquerda */
+  background: rgba(245, 158, 11, 0.12); /* Fundo amarelado */
+}
+
+/* Card informativo */
+.cardInfo {
+  border-left: 3px solid #3b82f6; /* Tarja azul à esquerda */
+  background: rgba(59, 130, 246, 0.12); /* Fundo azulado */
+}
+
+/* Hover no card de notificação */
+.card:hover {
+  background: rgba(30, 41, 59, 0.9); /* Destaque de fundo */
+  transform: translateX(2px); /* Deslocamento sutil */
+}
+
+/* Container do ícone do tipo de alerta */
+.cardIconWrapper {
+  display: flex; /* Flexbox */
+  align-items: flex-start; /* Alinhado ao topo */
+  margin-top: 2px; /* Margem de ajuste */
+}
+
+/* Conteúdo interno do card (Título, descrição e link) */
+.cardBody {
+  flex: 1; /* Preenche a largura */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 4px; /* Espaçamento interno */
+}
+
+/* Título da notificação */
+.cardTitle {
+  color: #f1f5f9; /* Texto claro */
+  font-size: 13px; /* Tamanho do título */
+  font-weight: 600; /* Negrito */
+  margin: 0; /* Sem margens */
+}
+
+/* Descrição detalhada da anomalia */
+.cardDesc {
+  color: #cbd5e1; /* Cor cinza claro para alta legibilidade */
+  font-size: 12px; /* Tamanho pequeno */
+  margin: 0; /* Sem margens */
+  line-height: 1.4; /* Altura de linha para boa leitura */
+}
+
+/* Data/Hora ou timestamp da notificação */
+.cardFooter {
+  display: flex; /* Flexbox */
+  align-items: center; /* Centralização */
+  justify-content: space-between; /* Distribuição de espaço */
+  margin-top: 6px; /* Margem superior */
+}
+
+/* Texto de horário ("Agora", "Há 5m") */
+.timestamp {
+  color: #64748b; /* Cinza desbotado */
+  font-size: 11px; /* Tamanho bem pequeno */
+}
+
+/* Link/Botão de ação dentro da notificação */
+.actionLink {
+  color: #a78bfa; /* Lilás */
+  font-size: 11px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+  text-decoration: none; /* Sem sublinhado */
+  cursor: pointer; /* Ponteiro de mão */
+  transition: color 0.2s; /* Transição */
+}
+
+/* Hover no link de ação */
+.actionLink:hover {
+  color: #ffffff; /* Texto branco */
+}
+
+/* Estado vazio quando não há notificações */
+.emptyState {
+  padding: 40px 20px; /* Preenchimento generoso */
+  text-align: center; /* Texto centralizado */
+  color: #64748b; /* Cor cinza */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  align-items: center; /* Centralizado */
+  gap: 12px; /* Espaço entre ícone e texto */
+}
+
+/* Ícone de estado vazio */
+.emptyIcon {
+  color: #475569; /* Cor azul escuro desbotada */
+}
+
+/* Texto do estado vazio */
+.emptyText {
+  font-size: 13px; /* Tamanho da fonte */
+  color: #94a3b8; /* Cinza claro */
+  margin: 0; /* Sem margem */
+}

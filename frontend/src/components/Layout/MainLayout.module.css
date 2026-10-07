@@ -1,0 +1,133 @@
+/* Container principal do layout dividindo a barra lateral e a área de conteúdo */
+.layout {
+  display: flex; /* Exibição em flexbox horizontal */
+  min-height: 100vh; /* Altura mínima cobrindo toda a tela */
+}
+
+/* Área principal de conteúdo reservando espaço para a Sidebar fixa */
+.mainContent {
+  flex: 1; /* Ocupa todo o espaço restante */
+  margin-left: 292px; /* Margem esquerda considerando a largura da Sidebar (260px + margem) */
+  padding: 16px 24px 24px 0; /* Espaçamento interno */
+  display: flex; /* Layout flexível vertical */
+  flex-direction: column; /* Coluna */
+  gap: 24px; /* Espaço entre o cabeçalho e o conteúdo da página */
+}
+
+/* Barra de cabeçalho superior no estilo Glassmorphism */
+.header {
+  position: relative; /* Define a referência de posicionamento relativo */
+  z-index: 1000; /* Garante prioridade máxima de empilhamento visual acima de todos os cards da página */
+  height: 72px; /* Altura fixa do cabeçalho */
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical dos itens */
+  justify-content: space-between; /* Separação entre o título à esquerda e perfil à direita */
+  padding: 0 24px; /* Preenchimento interno lateral */
+  border-radius: var(--radius-lg); /* Bordas arredondadas do tema */
+}
+
+/* Título do sistema no cabeçalho */
+.header h1 {
+  font-size: 1.25rem; /* Tamanho da fonte */
+  font-weight: 600; /* Peso semibold */
+  color: var(--primary); /* Cor primária do tema */
+}
+
+/* Container do perfil do usuário e botões de ação à direita */
+.headerRight {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  gap: 16px; /* Espaço entre o perfil e o botão de logout */
+}
+
+/* Container de dados do perfil do usuário */
+.userProfile {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  gap: 12px; /* Espaço entre avatar e textos */
+}
+
+/* Círculo do avatar contendo a inicial do nome do usuário */
+.avatar {
+  width: 36px; /* Largura do avatar */
+  height: 36px; /* Altura do avatar */
+  background: linear-gradient(135deg, var(--secondary), var(--primary)); /* Gradiente de destaque */
+  border-radius: 50%; /* Forma circular */
+  display: flex; /* Flexbox interno */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  font-weight: 600; /* Texto em negrito */
+  color: white; /* Cor do texto branca */
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3); /* Sombra elegante */
+}
+
+/* Container de texto do usuário com nome e badge */
+.userInfo {
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Organização em coluna */
+  gap: 2px; /* Espaço entre nome e perfil */
+}
+
+/* Nome do usuário autenticado adaptável ao tema */
+.userName {
+  color: var(--text-main); /* Cor dinâmica baseada no tema claro/escuro */
+  font-size: 14px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+}
+
+/* Badge indicando o perfil/role do usuário */
+.roleBadge {
+  display: inline-block; /* Exibição em bloco inline */
+  font-size: 10px; /* Tamanho bem pequeno */
+  font-weight: 700; /* Negrito destacado */
+  color: #8b5cf6; /* Cor lilás vibrante */
+  background: rgba(139, 92, 246, 0.15); /* Fundo lilás suave */
+  padding: 2px 6px; /* Espaçamento interno */
+  border-radius: 4px; /* Bordas arredondadas */
+  text-transform: uppercase; /* Em caixa alta */
+  letter-spacing: 0.5px; /* Espaçamento entre letras */
+}
+
+/* Botão de Logout para encerrar sessão */
+.logoutBtn {
+  display: flex; /* Flexbox interno */
+  align-items: center; /* Centraliza ícone e texto */
+  justify-content: center; /* Centralização */
+  gap: 6px; /* Espaço entre ícone e texto */
+  padding: 8px 12px; /* Preenchimento confortável */
+  background: rgba(239, 68, 68, 0.12); /* Fundo vermelho suave translúcido */
+  border: 1px solid rgba(239, 68, 68, 0.25); /* Borda vermelha sutil */
+  border-radius: 8px; /* Cantos arredondados */
+  color: #fca5a5; /* Cor rosa/vermelho suave */
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: 500; /* Peso médio */
+  cursor: pointer; /* Ponteiro clicável */
+  transition: all 0.2s ease-in-out; /* Transição de hover */
+}
+
+/* Override de botão de logout no Modo Claro */
+[data-theme="light"] .logoutBtn {
+  background: rgba(239, 68, 68, 0.1); /* Fundo vermelho translúcido leve */
+  border-color: rgba(239, 68, 68, 0.3); /* Borda vermelha nítida */
+  color: #dc2626; /* Texto vermelho escuro de alto contraste */
+}
+
+/* Hover no botão de logout */
+.logoutBtn:hover {
+  background: rgba(239, 68, 68, 0.25); /* Fundo mais vivo no hover */
+  color: #ffffff; /* Texto branco */
+  border-color: rgba(239, 68, 68, 0.5); /* Borda destacada */
+}
+
+/* Hover no botão de logout em Modo Claro */
+[data-theme="light"] .logoutBtn:hover {
+  background: rgba(239, 68, 68, 0.2); /* Fundo vermelho mais evidente */
+  color: #b91c1c; /* Texto vermelho mais escuro */
+}
+
+/* Container de conteúdo das páginas filhas da rota */
+.pageContent {
+  flex: 1; /* Preenche a área vertical restante */
+  position: relative; /* Define o contexto de posicionamento relativo */
+  z-index: 1; /* Mantém o conteúdo das páginas em camada inferior em relação ao header */
+}

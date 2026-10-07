@@ -1,0 +1,265 @@
+/* Container principal da página de Relatórios Executivos */
+.container {
+  display: flex; /* Layout flexível vertical */
+  flex-direction: column; /* Organização em coluna */
+  gap: 24px; /* Espaço entre seções */
+  padding-bottom: 40px; /* Preenchimento inferior */
+}
+
+/* Cabeçalho da página de relatórios */
+.header {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  justify-content: space-between; /* Distribuição de espaço nas extremidades */
+}
+
+/* Título principal adaptável ao tema */
+.title {
+  color: var(--text-main); /* Texto adaptável ao tema ativo */
+  font-size: 24px; /* Tamanho destacado */
+  font-weight: 700; /* Negrito */
+  margin: 0 0 4px 0; /* Margem inferior */
+}
+
+/* Subtítulo descritivo adaptável ao tema */
+.subtitle {
+  color: var(--text-muted); /* Texto secundário adaptável */
+  font-size: 14px; /* Tamanho médio */
+  margin: 0; /* Sem margens */
+}
+
+/* Container de botões de ação de exportação */
+.exportActions {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização */
+  gap: 12px; /* Espaço entre botões */
+}
+
+/* Botão de Exportação em CSV / Excel */
+.exportCsvBtn {
+  display: inline-flex; /* Flexbox */
+  align-items: center; /* Centralização vertical */
+  gap: 8px; /* Espaço entre ícone e texto */
+  padding: 10px 18px; /* Preenchimento */
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Gradiente verde esmeralda */
+  border: none; /* Sem borda */
+  border-radius: 10px; /* Cantos arredondados */
+  color: #ffffff; /* Texto branco */
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: 600; /* Negrito */
+  cursor: pointer; /* Ponteiro de mão */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); /* Sombra elegante */
+  transition: all 0.2s ease; /* Transição */
+}
+
+.exportCsvBtn:hover {
+  transform: translateY(-2px); /* Elevação no hover */
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4); /* Brilho de destaque */
+}
+
+/* Botão de Imprimir / Salvar PDF */
+.exportPdfBtn {
+  display: inline-flex; /* Flexbox */
+  align-items: center; /* Centralização vertical */
+  gap: 8px; /* Espaço entre ícone e texto */
+  padding: 10px 18px; /* Preenchimento */
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); /* Gradiente roxo/azul */
+  border: none; /* Sem borda */
+  border-radius: 10px; /* Cantos arredondados */
+  color: #ffffff; /* Texto branco */
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: 600; /* Negrito */
+  cursor: pointer; /* Ponteiro de mão */
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); /* Sombra elegante */
+  transition: all 0.2s ease; /* Transição */
+}
+
+.exportPdfBtn:hover {
+  transform: translateY(-2px); /* Elevação no hover */
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4); /* Brilho de destaque */
+}
+
+/* Grid de métricas resumo executivo */
+.summaryGrid {
+  display: grid; /* Layout em grid */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas */
+  gap: 16px; /* Espaço entre cards */
+}
+
+/* Card individual de resumo */
+.summaryCard {
+  padding: 20px; /* Preenchimento interno */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 8px; /* Espaçamento interno */
+  border-radius: 16px; /* Cantos arredondados */
+}
+
+/* Rótulo da métrica */
+.summaryLabel {
+  color: var(--text-muted); /* Rótulo adaptável ao tema */
+  font-size: 12px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+  text-transform: uppercase; /* Caixa alta */
+  letter-spacing: 0.5px; /* Espaçamento de letras */
+}
+
+/* Valor da métrica */
+.summaryValue {
+  color: var(--text-main); /* Valor adaptável ao tema ativo */
+  font-size: 22px; /* Tamanho grande */
+  font-weight: 700; /* Negrito destacado */
+}
+
+/* Subtexto descritivo */
+.summarySub {
+  color: #8b5cf6; /* Lilás nítido para legibilidade */
+  font-size: 12px; /* Tamanho pequeno */
+}
+
+/* Card da tabela de departamento */
+.tableCard {
+  padding: 20px; /* Preenchimento interno */
+  border-radius: 16px; /* Cantos arredondados */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 16px; /* Espaço interno */
+}
+
+/* Título de seção da tabela */
+.cardTitle {
+  color: var(--text-main); /* Texto adaptável ao tema */
+  font-size: 16px; /* Tamanho do título */
+  font-weight: 600; /* Negrito */
+  margin: 0; /* Sem margens */
+}
+
+/* Tabela de dados */
+.table {
+  width: 100%; /* Largura total */
+  border-collapse: collapse; /* Borda colapsada */
+  text-align: left; /* Alinhamento à esquerda */
+}
+
+.table th {
+  background: var(--panel-bg); /* Fundo do cabeçalho da tabela */
+  color: var(--text-muted); /* Texto cinza do cabeçalho */
+  font-size: 12px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+  text-transform: uppercase; /* Caixa alta */
+  padding: 12px 16px; /* Preenchimento */
+  border-bottom: 1px solid var(--panel-border); /* Linha divisória */
+}
+
+.table td {
+  padding: 12px 16px; /* Preenchimento */
+  color: var(--text-main); /* Texto adaptável das células */
+  font-size: 13px; /* Tamanho médio */
+  border-bottom: 1px solid var(--panel-border); /* Divisória sutil */
+}
+
+/* Barra de progresso visual de participação no orçamento */
+.progressBarBg {
+  width: 100%; /* Largura total */
+  height: 8px; /* Altura fina */
+  background: var(--panel-border); /* Fundo adaptável do tema */
+  border-radius: 4px; /* Arredondamento */
+  overflow: hidden; /* Oculta estouros */
+}
+
+.progressBarFill {
+  height: 100%; /* Altura total */
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6); /* Gradiente lilás/azul */
+  border-radius: 4px; /* Arredondamento */
+}
+
+/* Overrides para o Modo Claro no Relatório */
+[data-theme="light"] .summaryCard {
+  background: #f8fafc; /* Card cinza claro limpo */
+  border-color: #cbd5e1; /* Borda cinza visível */
+}
+
+[data-theme="light"] .table th {
+  background: #e2e8f0; /* Fundo destacado no cabeçalho da tabela */
+  color: #334155; /* Texto escuro de alto contraste */
+}
+
+[data-theme="light"] .table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.05); /* Hover suave no modo claro */
+}
+
+.progressBarFill {
+  height: 100%; /* Altura total */
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6); /* Gradiente lilás/azul */
+  border-radius: 4px; /* Arredondamento */
+}
+
+.deptName {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.actionCritical {
+  color: #fca5a5;
+}
+
+[data-theme="light"] .actionCritical {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.actionBelow {
+  color: #fcd34d;
+}
+
+[data-theme="light"] .actionBelow {
+  color: #d97706;
+  font-weight: 500;
+}
+
+.actionAdequate {
+  color: #6ee7b7;
+}
+
+[data-theme="light"] .actionAdequate {
+  color: #059669;
+  font-weight: 500;
+}
+
+.actionAbove {
+  color: #93c5fd;
+}
+
+[data-theme="light"] .actionAbove {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.actionExceeds {
+  color: #c4b5fd;
+}
+
+[data-theme="light"] .actionExceeds {
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+/* Otimização de impressão em PDF nativa do navegador */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .exportActions {
+    display: none !important;
+  }
+  .tableCard, .summaryCard {
+    background: #ffffff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+  .title, .summaryValue, .cardTitle, td {
+    color: #000000 !important;
+  }
+}

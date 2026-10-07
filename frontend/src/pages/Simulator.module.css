@@ -1,0 +1,262 @@
+/* Container principal da página do Simulador de Reajustes */
+.container {
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 24px; /* Espaço entre seções */
+  padding-bottom: 40px; /* Preenchimento inferior */
+}
+
+/* Cabeçalho da página */
+.header {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  justify-content: space-between; /* Distribuição de espaço */
+}
+
+/* Título principal adaptável ao tema */
+.title {
+  color: var(--text-main); /* Texto adaptável ao tema ativo */
+  font-size: 24px; /* Tamanho destacado */
+  font-weight: 700; /* Negrito */
+  margin: 0 0 4px 0; /* Margem inferior */
+}
+
+/* Subtítulo descritivo adaptável ao tema */
+.subtitle {
+  color: var(--text-muted); /* Cinza adaptável */
+  font-size: 14px; /* Tamanho médio */
+  margin: 0; /* Sem margens */
+}
+
+/* Layout em duas colunas: Painel de Controles + Preview de Impacto */
+.simulatorGrid {
+  display: grid; /* Layout em Grid */
+  grid-template-columns: 360px 1fr; /* Coluna de opções fixa + área de preview estendida */
+  gap: 24px; /* Espaço entre colunas */
+}
+
+/* Card do Painel de Parâmetros da Simulação */
+.controlsCard {
+  padding: 24px; /* Preenchimento interno */
+  border-radius: 20px; /* Cantos arredondados */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 20px; /* Espaçamento entre grupos de inputs */
+}
+
+/* Título da seção de controles */
+.sectionTitle {
+  color: var(--text-main); /* Texto adaptável ao tema */
+  font-size: 16px; /* Tamanho médio */
+  font-weight: 600; /* Negrito */
+  margin: 0 0 4px 0; /* Margem inferior */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centralização */
+  gap: 8px; /* Espaço do ícone */
+}
+
+/* Grupo de formulário */
+.inputGroup {
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 6px; /* Espaço entre label e input */
+}
+
+.label {
+  color: var(--text-muted); /* Rótulo adaptável ao tema */
+  font-size: 13px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+}
+
+/* Campos de entrada e seleção */
+.selectInput, .textInput {
+  width: 100%; /* Largura total */
+  padding: 10px 14px; /* Preenchimento */
+  background: var(--panel-bg); /* Fundo do painel do tema */
+  border: 1px solid var(--panel-border); /* Borda sutil do tema */
+  border-radius: 10px; /* Cantos arredondados */
+  color: var(--text-main); /* Texto adaptável ao tema */
+  font-size: 14px; /* Tamanho da fonte */
+  outline: none; /* Sem contorno */
+  transition: all 0.2s; /* Transição */
+}
+
+.selectInput option {
+  background: var(--panel-bg); /* Fundo das opções do select */
+  color: var(--text-main); /* Texto das opções do select */
+}
+
+.selectInput:focus, .textInput:focus {
+  border-color: #8b5cf6; /* Borda roxa no foco */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25); /* Anel de iluminação */
+}
+
+/* Card de resultados e comparativo em tempo real */
+.previewCard {
+  padding: 24px; /* Preenchimento interno */
+  border-radius: 20px; /* Cantos arredondados */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 20px; /* Espaçamento interno */
+}
+
+/* Indicadores de Impacto Financeiro */
+.impactGrid {
+  display: grid; /* Grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de igual largura */
+  gap: 16px; /* Espaçamento */
+}
+
+.impactBox {
+  background: var(--panel-bg); /* Fundo do tema */
+  border: 1px solid var(--panel-border); /* Borda sutil do tema */
+  padding: 16px; /* Preenchimento */
+  border-radius: 14px; /* Arredondamento */
+  display: flex; /* Flexbox vertical */
+  flex-direction: column; /* Coluna */
+  gap: 6px; /* Espaçamento */
+}
+
+.impactLabel {
+  color: var(--text-muted); /* Cor cinza adaptável */
+  font-size: 12px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+  text-transform: uppercase; /* Caixa alta */
+}
+
+.impactValue {
+  color: var(--text-main); /* Texto principal adaptável ao tema */
+  font-size: 20px; /* Tamanho grande */
+  font-weight: 700; /* Negrito */
+}
+
+/* Tabela de simulação individual por colaborador */
+.simTable {
+  width: 100%; /* Largura total */
+  border-collapse: collapse; /* Borda colapsada */
+  text-align: left; /* Alinhamento */
+}
+
+.simTable th {
+  background: var(--panel-bg); /* Fundo do cabeçalho da tabela */
+  color: var(--text-muted); /* Texto cinza do cabeçalho */
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.simTable td {
+  padding: 10px 14px;
+  color: var(--text-main); /* Texto adaptável das células */
+  font-size: 13px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+/* Container de tabela com rolagem vertical */
+.tableScrollWrapper {
+  max-height: 340px;
+  overflow-y: auto;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+}
+
+/* Card de Resumo de Seleção de Colaboradores */
+.selectionSummary {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.selectionSummary strong {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.empName {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.subText {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.oldCr {
+  color: var(--text-muted);
+}
+
+.crGood {
+  color: #10b981;
+}
+
+[data-theme="light"] .crGood {
+  color: #059669;
+}
+
+.crWarning {
+  color: #f59e0b;
+}
+
+[data-theme="light"] .crWarning {
+  color: #d97706;
+}
+
+/* Overrides para o Modo Claro para máxima legibilidade */
+[data-theme="light"] .selectionSummary {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .selectInput option {
+  background: #ffffff; /* Fundo branco nos itens do select */
+  color: #0f172a; /* Texto escuro nos itens do select */
+}
+
+[data-theme="light"] .impactBox {
+  background: #f8fafc; /* Fundo cinza bem claro para o card de impacto */
+  border-color: #cbd5e1; /* Borda visível cinza */
+}
+
+[data-theme="light"] .simTable th {
+  background: #e2e8f0; /* Fundo destacado no cabeçalho da tabela */
+  color: #334155; /* Texto escuro de alto contraste */
+}
+
+[data-theme="light"] .simTable tr:hover {
+  background: rgba(99, 102, 241, 0.05); /* Hover lilás suave no modo claro */
+}
+
+/* Botão de efetivar e aplicar reajustes no banco de dados */
+.applyBtn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.applyBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -4px rgba(16, 185, 129, 0.5);
+}
+
+.applyBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,561 @@
+/* Container principal da página de Histórico de Auditoria */
+.container {
+  display: flex;
+  /* Flexbox vertical */
+  flex-direction: column;
+  /* Coluna */
+  gap: 24px;
+  /* Espaço entre seções */
+  padding-bottom: 40px;
+  /* Preenchimento inferior */
+}
+
+/* Cabeçalho da página com título e ações */
+.header {
+  display: flex;
+  /* Flexbox horizontal */
+  align-items: center;
+  /* Centralização vertical */
+  justify-content: space-between;
+  /* Separação nas extremidades */
+}
+
+/* Título principal da página adaptável ao tema */
+.title {
+  color: var(--text-main);
+  /* Texto adaptável ao tema ativo */
+  font-size: 24px;
+  /* Tamanho destacado */
+  font-weight: 700;
+  /* Negrito */
+  margin: 0 0 4px 0;
+  /* Margem inferior */
+}
+
+/* Subtítulo descritivo adaptável ao tema */
+.subtitle {
+  color: var(--text-muted);
+  /* Texto secundário adaptável */
+  font-size: 14px;
+  /* Tamanho médio */
+  margin: 0;
+  /* Sem margens */
+}
+
+/* Barra de controles com campo de busca e filtros */
+.controlsBar {
+  display: flex;
+  /* Flexbox horizontal */
+  align-items: center;
+  /* Centralização */
+  justify-content: space-between;
+  /* Separação */
+  gap: 16px;
+  /* Espaçamento interno */
+  padding: 16px 20px;
+  /* Preenchimento */
+  border-radius: 16px;
+  /* Cantos arredondados */
+  flex-wrap: wrap;
+  /* Permite quebra de linha em telas pequenas */
+}
+
+/* Grupo de busca textual */
+.searchWrapper {
+  position: relative;
+  /* Posicionamento relativo para ícone interno */
+  flex: 1;
+  /* Ocupa espaço disponível */
+  min-width: 260px;
+  /* Largura mínima */
+}
+
+/* Ícone de lupa dentro do input de busca */
+.searchIcon {
+  position: absolute;
+  /* Posição absoluta */
+  left: 14px;
+  /* Distância da borda esquerda */
+  top: 50%;
+  /* Centralização vertical */
+  transform: translateY(-50%);
+  /* Ajuste fino */
+  color: var(--text-muted);
+  /* Cor cinza adaptável */
+  pointer-events: none;
+  /* Sem interatividade de clique */
+}
+
+/* Input de busca */
+.searchInput {
+  width: 100%;
+  /* Largura total */
+  padding: 10px 14px 10px 42px;
+  /* Preenchimento com espaço para o ícone */
+  background: var(--panel-bg);
+  /* Fundo adaptável do painel */
+  border: 1px solid var(--panel-border);
+  /* Borda sutil do tema */
+  border-radius: 10px;
+  /* Cantos arredondados */
+  color: var(--text-main);
+  /* Texto adaptável ao tema */
+  font-size: 14px;
+  /* Tamanho da fonte */
+  outline: none;
+  /* Sem contorno padrão */
+  transition: all 0.2s;
+  /* Transição */
+}
+
+/* Foco no input de busca */
+.searchInput:focus {
+  border-color: #8b5cf6;
+  /* Borda roxa vibrante */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+  /* Anel de brilho */
+}
+
+/* Grupo de filtros seletores */
+.filterGroup {
+  display: flex;
+  /* Flexbox horizontal */
+  align-items: center;
+  /* Centralização */
+  gap: 12px;
+  /* Espaço entre filtros */
+}
+
+/* Select de filtragem por Ação */
+.selectFilter {
+  padding: 10px 14px;
+  /* Preenchimento */
+  background: var(--panel-bg);
+  /* Fundo do painel do tema */
+  border: 1px solid var(--panel-border);
+  /* Borda sutil do tema */
+  border-radius: 10px;
+  /* Cantos arredondados */
+  color: var(--text-main);
+  /* Texto adaptável ao tema */
+  font-size: 13px;
+  /* Tamanho da fonte */
+  outline: none;
+  /* Sem contorno */
+  cursor: pointer;
+  /* Cursor de clique */
+}
+
+.selectFilter option {
+  background: var(--panel-bg);
+  /* Fundo dos itens do select */
+  color: var(--text-main);
+  /* Texto adaptável */
+}
+
+/* Tabela de logs de auditoria em Glassmorphism */
+.tableCard {
+  padding: 0;
+  /* Preenchimento limpo */
+  border-radius: 16px;
+  /* Cantos arredondados */
+  overflow: hidden;
+  /* Oculta estouros nas bordas */
+}
+
+/* Tabela estruturada */
+.table {
+  width: 100%;
+  /* Largura total */
+  border-collapse: collapse;
+  /* Remove espaçamentos duplos nas bordas */
+  text-align: left;
+  /* Alinhamento à esquerda */
+}
+
+/* Cabeçalho da tabela */
+.table th {
+  background: var(--panel-bg);
+  /* Fundo do cabeçalho */
+  color: var(--text-muted);
+  /* Cor cinza adaptável */
+  font-size: 12px;
+  /* Tamanho pequeno */
+  font-weight: 600;
+  /* Negrito */
+  text-transform: uppercase;
+  /* Caixa alta */
+  letter-spacing: 0.5px;
+  /* Espaçamento entre letras */
+  padding: 14px 18px;
+  /* Preenchimento */
+  border-bottom: 1px solid var(--panel-border);
+  /* Linha divisória */
+}
+
+/* Células da tabela */
+.table td {
+  padding: 14px 18px;
+  /* Preenchimento interno */
+  color: var(--text-main);
+  /* Texto adaptável ao tema */
+  font-size: 13px;
+  /* Tamanho médio */
+  border-bottom: 1px solid var(--panel-border);
+  /* Divisória suave */
+}
+
+/* Hover nas linhas da tabela */
+.table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.08);
+  /* Destaque lilás suave no hover */
+}
+
+/* Badge de Ação Criar (Verde) */
+.badgeCreate {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+/* Badge de Ação Editar (Azul) */
+.badgeUpdate {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+/* Badge de Ação Excluir (Vermelho) */
+.badgeDelete {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+/* Badge da Entidade afetada */
+.entityBadge {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* Botão de ação "Ver Detalhes" */
+.detailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detailBtn:hover {
+  background: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+}
+
+/* Janela Modal de Comparação/Detalhes */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Conteúdo interno da modal */
+.modalContent {
+  width: 100%;
+  max-width: 760px;
+  max-height: 88vh;
+  background: var(--panel-bg);
+  /* Fundo adaptável ao tema */
+  border: 1px solid var(--panel-border);
+  /* Borda adaptável */
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--shadow-glass);
+  overflow-y: auto;
+}
+
+/* Cabeçalho da modal */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+}
+
+/* Título da modal */
+.modalTitle {
+  color: var(--text-main);
+  /* Texto adaptável ao tema */
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Botão de fechar modal */
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  /* Ícone adaptável */
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--text-main);
+}
+
+/* Grid de Metadados da Auditoria (Usuário, E-mail, Data, Operação) */
+.userMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: var(--panel-bg);
+  /* Fundo adaptável */
+  border: 1px solid var(--panel-border);
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.metaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  /* Rótulo adaptável */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  /* Valor adaptável */
+  word-break: break-all;
+}
+
+/* Tabela de Comparação de Alterações (Diff de Campos) */
+.diffTableCard {
+  background: var(--panel-bg);
+  /* Fundo adaptável */
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.diffTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.diffTable th {
+  background: var(--panel-bg);
+  /* Fundo adaptável */
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.diffTable td {
+  padding: 12px 16px;
+  color: var(--text-main);
+  font-size: 13px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+/* Linha com valor alterado em destaque */
+.rowChanged {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.rowChanged td {
+  color: var(--text-main);
+}
+
+/* Badge indicativo de status Modificado vs Mantido */
+.badgeChanged {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.badgeUnchanged {
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(148, 163, 184, 0.1);
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+/* Overrides para o Modo Claro na página de Auditoria */
+.logDate {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.userNameText {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.userEmailText {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.modalSubtitle {
+  margin: 4px 0 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.modalUserEmail {
+  color: #8b5cf6;
+}
+
+[data-theme="light"] .modalUserEmail {
+  color: #6d28d9;
+}
+
+.modalActionLabel {
+  color: #10b981;
+}
+
+[data-theme="light"] .modalActionLabel {
+  color: #059669;
+}
+
+.modalSectionHeader {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+[data-theme="light"] .searchInput option,
+[data-theme="light"] .selectFilter option {
+  background: #ffffff;
+  /* Fundo branco para opções do select */
+  color: #0f172a;
+  /* Texto escuro */
+}
+
+[data-theme="light"] .table th,
+[data-theme="light"] .diffTable th {
+  background: #e2e8f0;
+  /* Fundo destacado nos cabeçalhos da tabela */
+  color: #334155;
+  /* Texto escuro de alto contraste */
+}
+
+[data-theme="light"] .badgeCreate {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #047857;
+  /* Verde escuro nítido */
+}
+
+[data-theme="light"] .badgeUpdate {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #1d4ed8;
+  /* Azul escuro nítido */
+}
+
+[data-theme="light"] .badgeDelete {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #b91c1c;
+  /* Vermelho escuro nítido */
+}
+
+[data-theme="light"] .entityBadge {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #6d28d9;
+  /* Roxo escuro nítido */
+}
+
+[data-theme="light"] .detailBtn {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #6d28d9;
+  /* Roxo escuro nítido */
+}
+
+[data-theme="light"] .detailBtn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  color: #5b21b6;
+}
+
+[data-theme="light"] .userMetaGrid {
+  background: #f8fafc;
+  /* Card cinza claro limpo */
+  border-color: #cbd5e1;
+  /* Borda visível */
+}
+
+[data-theme="light"] .badgeChanged {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #6d28d9;
+}

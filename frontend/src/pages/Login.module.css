@@ -1,0 +1,248 @@
+/* Container principal da página de login ocupando 100% da tela com fundo gradiente escuro */
+.loginContainer {
+  display: flex; /* Flexbox para centralização total do formulário */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: 100vh; /* Ocupa a altura total da janela */
+  width: 100vw; /* Ocupa a largura total da janela */
+  background: linear-gradient(135deg, #090d16 0%, #111827 40%, #1e1b4b 100%); /* Gradiente de fundo escuro moderno */
+  position: relative; /* Posicionamento relativo para elementos decorativos de fundo */
+  overflow: hidden; /* Oculta estouro de elementos animados */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Tipografia limpa */
+}
+
+/* Esfera luminosa decorativa no canto superior esquerdo */
+.glowTopLeft {
+  position: absolute; /* Posicionamento absoluto no container */
+  top: -10%; /* Posicionamento vertical acima da borda */
+  left: -10%; /* Posicionamento horizontal à esquerda */
+  width: 500px; /* Largura do elemento de brilho */
+  height: 500px; /* Altura do elemento de brilho */
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%); /* Brilho lilás translúcido */
+  border-radius: 50%; /* Forma circular */
+  pointer-events: none; /* Sem interatividade do cursor */
+  filter: blur(60px); /* Efeito de desfocagem para luz suave */
+}
+
+/* Esfera luminosa decorativa no canto inferior direito */
+.glowBottomRight {
+  position: absolute; /* Posicionamento absoluto */
+  bottom: -10%; /* Posicionamento vertical abaixo da borda */
+  right: -10%; /* Posicionamento horizontal à direita */
+  width: 500px; /* Largura da luz */
+  height: 500px; /* Altura da luz */
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(0, 0, 0, 0) 70%); /* Brilho azul translúcido */
+  border-radius: 50%; /* Forma circular */
+  pointer-events: none; /* Não bloqueia cliques */
+  filter: blur(60px); /* Desfocagem suave */
+}
+
+/* Card central de login no estilo Glassmorphism */
+.glassCard {
+  width: 100%; /* Ocupa largura responsiva */
+  max-width: 440px; /* Largura máxima do card */
+  padding: 40px; /* Espaçamento interno generoso */
+  background: rgba(30, 41, 59, 0.55); /* Fundo translúcido escuro */
+  backdrop-filter: blur(20px); /* Efeito de vidro fosco (Glassmorphism) */
+  -webkit-backdrop-filter: blur(20px); /* Suporte para navegadores Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda suave translúcida */
+  border-radius: 24px; /* Bordas arredondadas modernas */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.15); /* Sombra elevada com aura neon */
+  position: relative; /* Sobreposição acima dos fundos */
+  z-index: 10; /* Índice de empilhamento elevado */
+}
+
+/* Cabeçalho do card contendo o logotipo e título */
+.header {
+  text-align: center; /* Centraliza textos */
+  margin-bottom: 32px; /* Margem inferior de separação */
+}
+
+/* Ícone de logotipo do sistema com fundo gradiente em vidro */
+.logoBadge {
+  display: inline-flex; /* Alinhamento flexível interno */
+  align-items: center; /* Centralização vertical do ícone */
+  justify-content: center; /* Centralização horizontal do ícone */
+  width: 60px; /* Largura do emblema */
+  height: 60px; /* Altura do emblema */
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%); /* Gradiente roxo-azul */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda brilhante */
+  border-radius: 16px; /* Bordas suaves */
+  margin-bottom: 16px; /* Margem inferior */
+  color: #a78bfa; /* Cor do ícone */
+  box-shadow: 0 8px 16px rgba(139, 92, 246, 0.25); /* Sombra de destaque */
+}
+
+/* Título principal do aplicativo */
+.title {
+  color: #ffffff; /* Texto branco */
+  font-size: 26px; /* Tamanho grande e legível */
+  font-weight: 700; /* Peso em negrito */
+  margin: 0 0 6px 0; /* Margens de ajuste */
+  letter-spacing: -0.5px; /* Espaçamento entre letras */
+}
+
+/* Subtítulo descritivo do aplicativo */
+.subtitle {
+  color: #94a3b8; /* Cor cinza claro suave */
+  font-size: 14px; /* Tamanho médio */
+  margin: 0; /* Sem margens externas */
+}
+
+/* Formulário de entrada de dados */
+.form {
+  display: flex; /* Layout flexível vertical */
+  flex-direction: column; /* Organização em coluna */
+  gap: 20px; /* Espaçamento uniforme entre campos */
+}
+
+/* Container do grupo de input com label e campo */
+.inputGroup {
+  display: flex; /* Organização vertical */
+  flex-direction: column; /* Coluna */
+  gap: 8px; /* Espaço entre label e input */
+}
+
+/* Rótulo descritivo do campo (Label) */
+.label {
+  color: #cbd5e1; /* Cor cinza claro para boa leitura */
+  font-size: 13px; /* Tamanho pequeno */
+  font-weight: 600; /* Peso semibold */
+}
+
+/* Container de entrada com ícone acoplado */
+.inputWrapper {
+  position: relative; /* Posicionamento relativo para ícone interno */
+  display: flex; /* Exibição flexível */
+  align-items: center; /* Centralização vertical */
+}
+
+/* Ícone dentro da caixa de entrada */
+.inputIcon {
+  position: absolute; /* Posição absoluta dentro da caixa */
+  left: 14px; /* Distância da borda esquerda */
+  color: #64748b; /* Cor cinza desbotada */
+  pointer-events: none; /* Não intercepta cliques */
+}
+
+/* Campo de entrada de texto e senha */
+.input {
+  width: 100%; /* Largura completa do container */
+  padding: 12px 14px 12px 42px; /* Preenchimento interno reservando espaço para o ícone */
+  background: rgba(15, 23, 42, 0.6); /* Fundo escuro fosco */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Borda sutil translúcida */
+  border-radius: 12px; /* Cantos arredondados */
+  color: #ffffff; /* Texto de digitação branco */
+  font-size: 14px; /* Tamanho da fonte */
+  outline: none; /* Remove contorno padrão do navegador */
+  transition: all 0.2s ease-in-out; /* Transição suave de efeito de foco */
+}
+
+/* Efeito de foco no input */
+.input:focus {
+  border-color: #8b5cf6; /* Borda roxa vibrante no foco */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25); /* Anel de iluminação ao redor */
+  background: rgba(15, 23, 42, 0.8); /* Fundo sutilmente mais escuro */
+}
+
+/* Botão de alternância para mostrar/ocultar senha */
+.togglePasswordBtn {
+  position: absolute; /* Posição absoluta no lado direito */
+  right: 12px; /* Distância da borda direita */
+  background: transparent; /* Fundo transparente */
+  border: none; /* Sem bordas */
+  color: #64748b; /* Cor cinza do ícone */
+  cursor: pointer; /* Cursor de clique */
+  display: flex; /* Flexbox interno */
+  align-items: center; /* Alinhamento central */
+  justify-content: center; /* Centralização */
+  padding: 4px; /* Preenchimento de clique */
+  border-radius: 6px; /* Bordas levemente arredondadas */
+  transition: color 0.2s; /* Transição de cor */
+}
+
+/* Hover no botão de alternar senha */
+.togglePasswordBtn:hover {
+  color: #cbd5e1; /* Cor mais clara ao passar o mouse */
+}
+
+/* Alerta de erro de autenticação */
+.errorMessage {
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centralização vertical */
+  gap: 10px; /* Espaço entre o ícone e a mensagem de erro */
+  padding: 12px 16px; /* Preenchimento interno */
+  background: rgba(239, 68, 68, 0.15); /* Fundo vermelho suave translúcido */
+  border: 1px solid rgba(239, 68, 68, 0.3); /* Borda de erro vermelha */
+  border-radius: 10px; /* Cantos arredondados */
+  color: #fca5a5; /* Texto rosa/vermelho claro de aviso */
+  font-size: 13px; /* Tamanho pequeno */
+  font-weight: 500; /* Peso médio */
+}
+
+/* Botão de submissão de login */
+.submitButton {
+  width: 100%; /* Largura total */
+  padding: 14px; /* Altura confortável de clique */
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); /* Gradiente moderno roxo e azul */
+  color: #ffffff; /* Texto branco */
+  border: none; /* Sem borda padrão */
+  border-radius: 12px; /* Bordas suaves */
+  font-size: 15px; /* Tamanho destacado */
+  font-weight: 600; /* Texto em negrito */
+  cursor: pointer; /* Ponteiro de mão */
+  display: flex; /* Flexbox para alinhar texto e ícone */
+  align-items: center; /* Centralização vertical */
+  justify-content: center; /* Centralização horizontal */
+  gap: 8px; /* Espaço entre o texto e o ícone */
+  box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.4); /* Sombra elegante */
+  transition: all 0.2s ease-in-out; /* Animação fluida nos estados de hover */
+}
+
+/* Hover no botão de submit */
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px); /* Elevação suave do botão */
+  box-shadow: 0 14px 26px -4px rgba(139, 92, 246, 0.5); /* Aumento da iluminação */
+}
+
+/* Estado desabilitado do botão durante o carregamento */
+.submitButton:disabled {
+  opacity: 0.7; /* Opacidade reduzida */
+  cursor: not-allowed; /* Cursor indicando bloqueio */
+}
+
+/* Seção de ajuda com credenciais de teste para demonstração rápida */
+.demoBox {
+  margin-top: 24px; /* Separação superior */
+  padding: 14px; /* Preenchimento interno */
+  background: rgba(15, 23, 42, 0.4); /* Fundo sutil */
+  border: 1px dashed rgba(255, 255, 255, 0.15); /* Borda tracejada */
+  border-radius: 12px; /* Arredondamento */
+  text-align: center; /* Texto centralizado */
+}
+
+/* Título informativo das credenciais de teste */
+.demoTitle {
+  color: #94a3b8; /* Cor cinza claro */
+  font-size: 12px; /* Tamanho pequeno */
+  margin-bottom: 8px; /* Margem inferior */
+}
+
+/* Botão para preenchimento automático de credenciais de demonstração */
+.demoButton {
+  background: rgba(139, 92, 246, 0.15); /* Fundo roxo suave */
+  border: 1px solid rgba(139, 92, 246, 0.3); /* Borda suave */
+  color: #c4b5fd; /* Texto roxo claro */
+  padding: 6px 12px; /* Preenchimento compacto */
+  border-radius: 8px; /* Bordas arredondadas */
+  font-size: 12px; /* Tamanho pequeno */
+  font-weight: 600; /* Negrito */
+  cursor: pointer; /* Ponteiro clicável */
+  transition: all 0.2s; /* Transição */
+}
+
+/* Hover no botão de credencial de teste */
+.demoButton:hover {
+  background: rgba(139, 92, 246, 0.3); /* Destaque de cor no hover */
+  color: #ffffff; /* Texto branco no foco */
+}
