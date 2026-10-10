@@ -1,3 +1,7 @@
+
+
+
+
 # 💼 CompensaHub — Plataforma de Gestão de Cargos e Remuneração
 
 > Sistema B2B web que centraliza a gestão de estrutura salarial, 
