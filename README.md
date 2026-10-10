@@ -12,7 +12,7 @@
 
 ## 🎬 Demo
 
-[![Assista ao vídeo de demonstração](https://img.shields.io/badge/Demo-Assistir%20no%20YouTube-red?style=for-the-badge&logo=youtube)]([https://youtube.com](https://youtu.be/RCGUV0HtbPk))  
+[![Assista ao vídeo de demonstração](https://img.shields.io/badge/Demo-Assistir%20no%20YouTube-red?style=for-the-badge&logo=youtube)]([[https://youtube.com](https://youtu.be/RCGUV0HtbPk](https://www.youtube.com/watch?v=RCGUV0HtbPk)))  
 *Acesse o ambiente de demonstração ao vivo ou assista ao tour guiado de 2 minutos pelas funcionalidades da plataforma.*
 
 ## 📸 Screenshots
